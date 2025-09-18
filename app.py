@@ -23,3 +23,7 @@ def verify_token(credentials: HTTPAuthorizationCredentials = Depends(security)):
 @app.get("/secure-data")
 def get_secure_data(token: str = Depends(verify_token)):
     return {"message": "You have accessed secure data!", "token_used": token}
+
+@app.get("/")
+def landing_page():
+    return {"message": "you are in landing page!"}
